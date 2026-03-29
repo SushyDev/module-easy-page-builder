@@ -38,9 +38,17 @@ define([
         function extractFieldsFromConfig(config) {
             const additional = config.additional_data || {};
             const fieldsValue = additional.fields && additional.fields.value;
-            return fieldsValue
+            const encodedFieldsValue = additional.encoded_fields && additional.encoded_fields.value;
+            
+            const plainFields = fieldsValue
                 ? fieldsValue.split(',').map(f => f.trim()).filter(Boolean)
                 : [];
+            
+            const encodedFields = encodedFieldsValue
+                ? encodedFieldsValue.split(',').map(f => f.trim()).filter(Boolean)
+                : [];
+            
+            return plainFields.concat(encodedFields);
         }
 
         function buildFieldData(fields, storeData) {
