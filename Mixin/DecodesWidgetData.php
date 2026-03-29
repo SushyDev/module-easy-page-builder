@@ -12,6 +12,11 @@ trait DecodesWidgetData
     /** @var array<string, string>|null */
     private ?array $encodedFieldMap = null;
 
+    /**
+     * @param string|int|null $key
+     * @param bool $index
+     * @return mixed
+     */
     public function getData($key = '', $index = false): mixed
     {
         $value = parent::getData($key, $index);
@@ -22,8 +27,8 @@ trait DecodesWidgetData
 
         return match ($this->getEncodingTypeForKey($key)) {
             FieldTypeInterface::ENCODING_HTML_ENTITIES => html_entity_decode($value, ENT_QUOTES | ENT_HTML5, 'UTF-8'),
-            FieldTypeInterface::ENCODING_WIDGET        => $this->decodeWidgetEncoding($value),
-            default                                    => $value,
+            FieldTypeInterface::ENCODING_WIDGET => $this->decodeWidgetEncoding($value),
+            default => $value,
         };
     }
 

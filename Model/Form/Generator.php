@@ -21,9 +21,9 @@ class Generator
 
     public function generate(string $formName): string
     {
-        $dsName    = $formName . '_data_source';
-        $class     = $this->registry->findByFormName($formName);
-        $fields    = $class !== null ? $this->reflectFields($class) : [];
+        $dsName = $formName . '_data_source';
+        $class = $this->registry->findByFormName($formName);
+        $fields = $class !== null ? $this->reflectFields($class) : [];
         $fieldsXml = $this->buildFieldsXml($fields, $formName);
 
         return <<<XML
@@ -118,7 +118,7 @@ class Generator
     private function buildFieldsXml(array $fields, string $formNamespace): string
     {
         $sortOrder = 10;
-        $parts     = [];
+        $parts = [];
 
         foreach ($fields as $propertyName => $field) {
             $parts[] = $field->buildXml($propertyName, $sortOrder, $formNamespace);
