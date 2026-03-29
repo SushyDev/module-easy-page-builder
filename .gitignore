@@ -1,1 +1,6 @@
 *.md
+/.php_cs
+/.php_cs.cache
+/vendor/
+composer.lock
+.DS_Store

@@ -1,0 +1,34 @@
+{
+  "name": "sushydev/module-easy-page-builder",
+  "description": "Declarative PageBuilder widget registration for Magento 2 using PHP attributes",
+  "type": "magento2-module",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "SushyDev",
+      "email": "dev@sushydev.com"
+    }
+  ],
+  "require": {
+    "php": "^8.4",
+    "magento/framework": "^103|^104|^105",
+    "magento/module-pagebuilder": "*",
+    "magento/module-ui": "*",
+    "magento/module-widget": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "SushyDev\\EasyPageBuilder\\": ""
+    }
+  },
+  "repositories": {
+    "module-easy-page-builder": {
+      "type": "git",
+      "url": "https://github.com/sushydev/module-easy-page-builder.git"
+    }
+  }
+}
+
