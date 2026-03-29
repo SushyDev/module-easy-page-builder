@@ -1,0 +1,17 @@
+<div class="pagebuilder-content-type pagebuilder-simple-component"
+     event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <div attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+        <!-- ko if: displayPreview -->
+            <div class="rendered-content" html="previewHtml"></div>
+        <!-- /ko -->
+        <!-- ko ifnot: displayPreview -->
+            <div class="pagebuilder-block-placeholder">
+                <span class="placeholder-text" text="placeholderText"></span>
+            </div>
+        <!-- /ko -->
+    </div>
+    <div data-role="spinner" class="admin__data-grid-loading-mask" if="loading">
+        <div class="spinner"><span repeat="8"></span></div>
+    </div>
+    <render args="getOptions().template"></render>
+</div>

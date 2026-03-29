@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Model\Layout\Merge">
+        <plugin name="simple_pagebuilder_inject_layout_handle"
+                type="SushyDev\EasyPageBuilder\Plugin\InjectLayoutHandle"/>
+    </type>
+
+    <type name="Magento\Ui\Config\Reader\FileResolver">
+        <plugin name="simple_pagebuilder_virtual_file_resolver_ui"
+                type="SushyDev\EasyPageBuilder\Plugin\VirtualUiFormResolver"/>
+    </type>
+
+    <type name="Magento\PageBuilder\Model\Stage\Config">
+        <plugin name="simple_pagebuilder_inject_components"
+                type="SushyDev\EasyPageBuilder\Plugin\InjectPageBuilderComponents"/>
+    </type>
+
+    <type name="Magento\PageBuilder\Model\Stage\RendererPool">
+        <arguments>
+            <argument name="renderers" xsi:type="array">
+                <item name="simple_phtml" xsi:type="object">SushyDev\EasyPageBuilder\Model\Renderer\Phtml</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Widget\Model\Config\Data">
+        <plugin name="simple_pagebuilder_merge_widgets"
+                type="SushyDev\EasyPageBuilder\Plugin\MergeWidgets"/>
+    </type>
+
+    <virtualType name="SushyDev\EasyPageBuilder\Source\AppearanceSourceDefault"
+                 type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+</config>
