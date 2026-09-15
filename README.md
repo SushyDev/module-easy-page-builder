@@ -117,7 +117,13 @@ class MyWidget extends Template
 - **Mixin/DecodesWidgetData.php** — Trait for automatic field decoding
 - **Attribute/PageBuilder.php** — Block-level attribute decorator
 
+## Contributing
+
+Contributions are welcome. By submitting a pull request you agree to the
+terms in [CONTRIBUTING.md](CONTRIBUTING.md), which grants the maintainer
+the right to relicense contributions.
+
 ## License
 
-Proprietary
+GPL-3.0-only
 

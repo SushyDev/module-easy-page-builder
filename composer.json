@@ -2,7 +2,7 @@
   "name": "sushydev/module-easy-page-builder",
   "description": "Declarative PageBuilder widget registration for Magento 2 using PHP attributes",
   "type": "magento2-module",
-  "license": "proprietary",
+  "license": "GPL-3.0-only",
   "authors": [
     {
       "name": "SushyDev",
